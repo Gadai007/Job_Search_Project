@@ -34,5 +34,6 @@ const Gig = db.define('gig', {
 })
 
 module.exports = {
-    db
+    db,
+    Gig
 }

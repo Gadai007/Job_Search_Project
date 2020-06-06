@@ -3,6 +3,7 @@ const hbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const path = require('path')
 const { db } = require('./db/models')
+const { gigRoute } = require('./routes/gigs')
 
 const app = express()
 
@@ -13,8 +14,16 @@ db.authenticate()
     .then(() => console.log('db is connected'))
     .catch((err) => console.error('db not connected', err))
 
-app.get('/', (req,res) => res.send('Working fine'))
+//routers
+app.use('/gigs', gigRoute)
 
-app.listen(PORT, () => {
-    console.log(`server started on http://localhost:${PORT}`)
-})
+//database synchronised
+db.sync()
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log(`server started on http://localhost:${PORT}`)
+        })
+    })
+    .catch((err) => {
+        console.error('Database not started', err)
+    })

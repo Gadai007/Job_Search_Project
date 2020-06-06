@@ -12,6 +12,13 @@ const PORT = process.env.PORT || 1221
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
 
+//handlebars
+app.engine('handlebars', exphbs({ defaultLayout: 'main'}))
+app.set('view engine', 'handlebars')
+
+//static 
+app.use(express.static(path.join(__dirname, 'public')))
+
 //routers
 app.use('/gigs', gigRoute)
 

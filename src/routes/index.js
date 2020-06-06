@@ -3,8 +3,8 @@ const { getGigs,createGigs } = require('../controllers/gigs')
 
 route.get('/', async (req, res) => {
    try{
-    const gig = await getGigs()
-    res.status(200).send(gig)
+    const gigs = await getGigs()
+    res.render('gigs', { gigs })
    }
    catch(err){
        console.error("problem in router layer", err)

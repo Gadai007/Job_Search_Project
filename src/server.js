@@ -3,16 +3,14 @@ const hbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const path = require('path')
 const { db } = require('./db/models')
-const { gigRoute } = require('./routes/gigs')
+const { gigRoute } = require('./routes')
 
 const app = express()
 
 const PORT = process.env.PORT || 1221
 
-//test db connection
-db.authenticate()
-    .then(() => console.log('db is connected'))
-    .catch((err) => console.error('db not connected', err))
+app.use(express.json())
+app.use(express.urlencoded({ extended: true}))
 
 //routers
 app.use('/gigs', gigRoute)

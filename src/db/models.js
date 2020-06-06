@@ -6,11 +6,6 @@ const db = new Sequelize('codegig', 'giguser', 'gigpass', {
 })
 
 const Gig = db.define('gig', {
-    id: {
-        type: Sequelize.DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-    },
     title : {
         type: Sequelize.DataTypes.STRING,
         allowNull: false     

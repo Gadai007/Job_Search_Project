@@ -24,6 +24,11 @@ app.use(express.static(path.join(__dirname, '../public')))
 //routers
 app.use('/gigs', gigRoute)
 
+//server request
+app.get('/', (req, res) => {
+    res.render('index', { layout : 'landing'})
+})
+
 //database synchronised
 db.sync()
     .then(() => {

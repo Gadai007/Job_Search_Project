@@ -1,9 +1,10 @@
 const express = require('express')
-const hbs = require('express-handlebars')
+const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const path = require('path')
 const { db } = require('./db/models')
 const { gigRoute } = require('./routes')
+
 
 const app = express()
 
@@ -13,11 +14,12 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
 
 //handlebars
-app.engine('handlebars', exphbs({ defaultLayout: 'main'}))
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
+app.set('views', path.join(__dirname, '../views'))
 
 //static 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, '../public')))
 
 //routers
 app.use('/gigs', gigRoute)

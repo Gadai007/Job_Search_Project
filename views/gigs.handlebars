@@ -1,0 +1,22 @@
+   <h3>All Jobs</h3> 
+    {{#each gigs as |g|}}
+    <div class="row">
+    <div class="col s12 m6">
+      <div class="card  z-depth-3">
+        <div class="card-content black-text">
+          <span class="card-title">{{g.title}}</span>
+          <p>{{g.description}}</p>
+          <ul>
+            <li>Budget : {{g.budget}}</li>
+            <li>Technologies : {{g.technologies}}</li>
+        </ul>
+        </div>
+        <div class="card-action">
+          <a href="{{g.email}}" class="waves-effect waves-light btn">Apply Now<i class="material-icons right">send</i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{else}}
+  <h4>No jobs Available</h4>
+  {{/each}}

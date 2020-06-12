@@ -1,6 +1,7 @@
 const route = require('express').Router()
 const { getGigs,createGigs } = require('../controllers/gigs')
 
+//to get the jobs
 route.get('/', async (req, res) => {
    try{
     const gigs = await getGigs()
@@ -11,6 +12,12 @@ route.get('/', async (req, res) => {
    }
 })
 
+//go to the job form
+route.get('/add', (req, res) => {
+    res.render('add')
+})
+
+//to submit the job form
 route.post('/add', async (req, res) => {
     try{
         const { title, technologies, description, budget, email} = req.body

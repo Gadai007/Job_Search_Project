@@ -3,35 +3,35 @@
     <div class="row">
     <div class="col">
     <h1>Add jobs</h1>
-
+    <h3>{{error}}</h3>
     <form class="col s12" action="/gigs/add" method="POST">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="eg. react developer, data scientist" id="title" type="text" class="validate">
+          <textarea name="title" placeholder="eg. react developer, data scientist" id="title" type="text" class="materialize-textarea">{{title}}</textarea>
           <label for="title">Title</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input placeholder="eg. javascript, python" id="technologies" type="text" class="validate">
+          <textarea name="technologies" placeholder="eg. javascript, python" id="technologies" type="text" class="materialize-textarea" >{{technologies}}</textarea>
           <label for="technologies">Technologies Needed</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input placeholder="how much you want to pay"  id="budget" type="text" class="validate">
+          <input name="budget" placeholder="how much you want to pay"  id="budget" type="text" class="validate" value={{budget}}>
           <label for="budget">Budget</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <textarea placeholder="describe the job profile" data-length="150" id="description" class="materialize-textarea"></textarea>
+          <textarea name="description" placeholder="describe the job profile" data-length="150" id="description" class="materialize-textarea">{{description}}</textarea>
           <label for="description">Description</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input placeholder="your email id" id="email" type="email" class="validate">
+          <textarea name="email" placeholder="your email id" id="email" type="email" class="materialize-textarea">{{email}}</textarea>
           <label for="email">Email</label>
         </div>
       </div>

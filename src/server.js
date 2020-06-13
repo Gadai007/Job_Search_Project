@@ -1,6 +1,6 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
-const bodyParser = require('body-parser')
+
 const path = require('path')
 const { db } = require('./db/models')
 const { gigRoute } = require('./routes')

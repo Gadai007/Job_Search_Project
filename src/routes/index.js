@@ -23,13 +23,12 @@ route.post('/add', async (req, res) => {
         const { title, technologies, description, budget, email} = req.body
 
         if((!title) || (!technologies) || (!description) || (!budget) || (!email)){
-            return res.status(400).send({
-                error: 'need title, technologies, description, budget, email to create a gig'
-            })
+            const error = 'need all fields to create a job'
+            return res.render('add', { error })             
         }
 
-        const gig = await createGigs(title, technologies, description, budget,email)
-        res.status(201).send(gig)
+        await createGigs(title, technologies, description, budget, email)
+        res.redirect('/gigs')
     }
     catch(e){
         console.error('problem in router post layer', e)

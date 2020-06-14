@@ -4,7 +4,8 @@
     <div class="col">
     <h1>Add jobs</h1>
     <h3>{{error}}</h3>
-    <form class="col s12" action="/gigs/add" method="POST">
+    <form class="col s12 white z-depth-3 form" action="/gigs/add" method="POST">
+      <br>
       <div class="row">
         <div class="input-field col s6">
           <textarea name="title" placeholder="eg. react developer, data scientist" id="title" type="text" class="materialize-textarea">{{title}}</textarea>
@@ -14,7 +15,7 @@
       <div class="row">
         <div class="input-field col s12">
           <textarea name="technologies" placeholder="eg. javascript, python" id="technologies" type="text" class="materialize-textarea" >{{technologies}}</textarea>
-          <label for="technologies">Technologies Needed</label>
+          <label for="technologies">Technologies</label>
         </div>
       </div>
       <div class="row">
@@ -40,6 +41,7 @@
         <i class="material-icons right">send</i>
         </button>
       </div>
+      <br>
     </form>
     </div>
     </div>

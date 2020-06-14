@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $('.sidenav').sidenav();
+    $('.tap-target').tapTarget();
     $('textarea#description').characterCounter();
     $('#description').val('');
     M.textareaAutoResize($('#description'));

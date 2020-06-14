@@ -1,5 +1,8 @@
 const route = require('express').Router()
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 const { getGigs,createGigs } = require('../controllers/gigs')
+const { Gig } = require('../db/models')
 
 //to get the jobs
 route.get('/', async (req, res) => {
@@ -33,6 +36,19 @@ route.post('/add', async (req, res) => {
     catch(e){
         console.error('problem in router post layer', e)
     }
+})
+
+//search for jobs
+route.get('/search', async (req, res) => {
+   try{
+    let search = req.query.search
+    
+    const gigs = await Gig.findAll({ where : { technologies : { [Op.like] : '%' + search + '%'}}})
+    res.render('gigs', { gigs })
+   }
+   catch(e){
+       console.log('problem in search', e)
+   } 
 })
 
 module.exports = {

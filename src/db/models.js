@@ -1,9 +1,18 @@
 const Sequelize = require('sequelize')
 
-const db = new Sequelize('codegig', 'giguser', 'gigpass', {
-    dialect: 'mysql',
-    host: 'localhost'
-})
+
+let db
+
+if(process.env.DATABASE_URL){
+    db = new Sequelize(process.env.DATABASE_URL)
+}
+else {
+    db = new Sequelize('codegig', 'giguser', 'gigpass', {
+        dialect: 'mysql',
+        host: 'localhost'
+    })
+}
+
 
 const Gig = db.define('gig', {
     title : {
